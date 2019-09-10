@@ -1,0 +1,485 @@
+body {
+    font-family: 'Jost*', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h3 {
+    font-weight: normal;
+}
+
+h2 {
+    font-weight: normal;
+    font-size: 1.3em;
+}
+
+/* HEADER */
+
+.header, .menu {
+    width: 100%;
+    height: 5rem;
+    position: relative;
+    max-width: 1920px;
+    margin: auto;
+}
+
+.header.small, .menu.small {
+    position: fixed;
+    top: 0;
+}
+
+@media only screen and (min-width: 1920px) {
+    .header.small, .menu.small {
+        left: calc( 50vw - 960px);
+        right: calc( 50vw - 960px);
+    }
+}
+
+.header h1 {
+    margin-top: 0.82em;
+}
+
+.header.small {
+    z-index: 2;
+}
+
+.header-bg {
+    -webkit-transition: opacity 0.15s ease;
+    transition: opacity 0.15s ease;
+    z-index: 1;
+    height: 5em;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
+    opacity: 0;
+}
+
+.header-bg.active {
+    opacity: 1;
+}
+
+@supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
+    .header-bg {
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+.header>.content {
+    text-align: center;
+
+    z-index: 3;
+    width: 100%;
+}
+
+.header.small>.content {
+    width: 15em;
+}
+
+.header h1 {
+    margin: 0;
+    line-height: 5rem;
+}
+
+.menu {
+    z-index: 2;
+    text-align: right;
+}
+
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    padding-top: 0.3rem;
+    line-height: 1.7rem;
+    margin: 1.5rem 0;
+    cursor: pointer;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 2rem;
+    line-height: 2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    visibility: visible;
+}
+
+.menu ul li {
+    -webkit-transition: color 0.15s ease, border 0.15s ease, background-color 0.15s ease;
+    transition: color 0.15s ease, border 0.15s ease, background-color 0.15s ease;
+    line-height: 1rem;
+    padding: 0.45em 1em 0.3em 1em;
+    display: inline-block;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 100px;
+    /*margin-right: 1em;*/
+    text-align: center;
+}
+
+
+/* phablet only */
+
+@media only screen and (max-width: 760px) {
+    .menu.small ul {
+        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: fixed;
+        left: 0;
+        right: 0;
+        text-align: center;
+        height: auto;
+    }
+    .menu.small ul li {
+        margin: 0;
+        border-radius: 0;
+        display: block;
+        border: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 1em 0;
+        left: 0;
+        right: 0;
+    }
+    .menu.small .hamburger {
+        display: block;
+    }
+    .menu.small ul {
+        visibility: hidden;
+    }
+    @supports ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
+        .menu.small ul {
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    }
+}
+
+
+/* normal size */
+
+@media only screen and (min-width: 760px) {
+    .menu.small ul {
+        margin-top: 1.5rem;
+        overflow: hidden;
+    }
+    .header>.content {
+        -webkit-transition: width 0.15s ease;
+        transition: width 0.15s ease;
+    }
+    .menu>.content {
+        -webkit-transition: width 0.15s ease;
+        transition: width 0.15s ease;
+    }
+}
+
+.menu ul li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.menu>.content {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 1em;
+    float: right;
+    width: 100%;
+    text-align: center;
+}
+
+.menu.small>.content {
+    width: 24em;
+}
+
+.menu .contact {
+    margin-right: 0;
+}
+
+.container {
+    background-color: black;
+    min-height: calc(100vh - 12rem);
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 360px;
+}
+
+
+/* disable header animation on mobile */
+
+@media only screen and (max-width: 760px) {
+    .menu.small, .header.small {
+        left: 0;
+    }
+    .menu.small>.content {
+        width: 5em;
+    }
+}
+
+
+/* PORTFOLIO SECTION */
+
+#portfolio {
+    text-align: center;
+    font-size: 12px;
+}
+
+#portfolio:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+#portfolio>.content {
+    max-width: 1920px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.portfolio-item {
+    width: 100%;
+    position: relative;
+}
+
+.portfolio-item>img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.portfolio-overlay {
+    transition: opacity 0.15s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    line-height: 1.4em;
+    text-align: left;
+    opacity: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.portfolio-overlay>.background {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    display: none;
+    overflow: hidden;
+}
+
+.portfolio-overlay>.content {
+    padding: 1.5em 2em;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    text-align: justify;
+}
+
+.portfolio-overlay>.content ul {
+    padding-left: 1.2em;
+}
+
+@supports ((-webkit-filter: saturate(180%) blur(20px)) or (filter: saturate(180%) blur(20px))) {
+    .portfolio-overlay>.background {
+        display: block;
+        filter: saturate(180%) blur(20px);
+        -webkit-filter: saturate(180%) blur(20px);
+    }
+    .portfolio-overlay {
+        background: black;
+    }
+    .portfolio-overlay>.content {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+.portfolio-overlay p a {
+    text-decoration: underline;
+}
+
+.portfolio-overlay:hover {
+    opacity: 1;
+}
+
+.portfolio-overlay h2 {
+    font-weight: normal;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 0.5em;
+}
+
+.portfolio-overlay .btn {
+    float: right;
+    mix-blend-mode: lighten;
+    /*padding: 0.4em 1em 0.35em 1em;*/
+}
+
+.portfolio-overlay .title {
+    margin-bottom: 1.5em;
+}
+
+.portfolio-overlay .title:after {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+
+/* Larger than phablet (also point when grid becomes active) */
+
+@media only screen and (min-width: 480px) {
+    #portfolio {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 693px) {
+    #portfolio>.content {
+        grid-template-columns: auto auto;
+    }
+    #portfolio {
+        font-size: 13px;
+    }
+}
+
+
+/* Larger than tablet */
+
+@media only screen and (min-width: 1023px) {
+    #portfolio>.content {
+        grid-template-columns: auto auto auto;
+    }
+    #portfolio {
+        font-size: 12px;
+    }
+}
+
+
+/* Larger than desktop */
+
+@media only screen and (min-width: 1300px) {
+   #portfolio>.content {
+        grid-template-columns: auto auto auto auto;
+    }
+    #portfolio {
+        font-size: 11px;
+    }
+}
+
+
+/* OTHER SECTION */
+
+.pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 90px;
+    overflow: hidden;
+}
+
+#other {
+    max-width: 700px;
+    margin: auto;
+    padding: 1.5em;
+    text-align: center;
+}
+
+#other p a {
+    text-decoration: underline;
+}
+
+#other .btn {
+    margin-top: 1em;
+}
+
+.social-icons {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    background: black;
+    color: white;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin: 0 0.3em;
+}
+
+.social-icons li svg {
+    width: 1.5em;
+    height: 1.5em;
+    fill: white;
+    border-radius: 1em;
+    -webkit-transition: fill 0.15s ease, background-color 0.15s ease;
+    transition: fill 0.15s ease, background-color 0.15s ease;
+}
+
+.social-icons li svg.padded {
+    width: 1.3em;
+    height: 1.3em;
+    padding: 0.1em;
+}
+
+.social-icons li svg:hover {
+    background-color: white;
+    fill: black;
+}
+
+/* FOOTER */
+
+.copy {
+    font-size: 10px;
+    margin: 0.5em 0 0 0;
+    color: #444;
+}
+
+
+/* ELEMENTS */
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+.btn {
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 0.4em 1em 0.25em 1em;
+    display: inline-block;
+    color: black;
+    margin-top: 0.2em;
+    -webkit-transition: background-color 0.15s ease, color 0.15s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.white {
+    color: white;
+    border-color: white;
+}
+
+.white:hover {
+    background-color: white;
+    color: black;
+}
+
+.hidden {
+    display: none;
+}

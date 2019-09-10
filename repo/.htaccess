@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteBase /repo/
+RewriteRule ^(Packages.*)$ package.php

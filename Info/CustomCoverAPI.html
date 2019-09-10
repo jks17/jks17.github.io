@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>CustomCover API</title>
+    <base target="_blank" />
+    <style>
+        @font-face {
+            font-family: 'Monoid';
+            src: url(../Fonts/Monoid.ttf);
+        }
+
+        @font-face {
+            font-family: 'CH_Sofia';
+            src: url(../Fonts/Sofia.otf);
+        }
+
+        body {
+            font-family: 'CH_Sofia';
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        a {
+            color: #1c7bde;
+        }
+
+        .code {
+            font-family: 'Monoid';
+            line-height: 18px;
+            font-size: 14px;
+            border-left: 3px solid #E9E9E9;
+            padding-left: 15px;
+            color: #424242;
+        }
+
+        .orange {
+            color: #FF9900;
+        }
+
+        .blue {
+            color: #3299BB;
+        }
+
+        .green {
+            color: #88BB11;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-weight: normal;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CustomCover Developer Info</h1>
+    <p>Ensure that you're using the latest beta from my <a href="http://chewitt.me/repo">repo</a>.</p>
+    <secton>
+        <h2>API Info</h2>
+        <p class="code"> <span class="blue">@interface</span> CustomCoverAPI : <span class="orange">NSObject</span>
+            <br/> +(<span class="orange">UIView*</span>) &nbsp;mainLSView;
+            <br/> +(<span class="orange">UIView*</span>) &nbsp;backgroundLSView;
+            <br/> +(<span class="orange">UIColor*</span>) primaryLSColour;
+            <br/> +(<span class="orange">UIColor*</span>) secondaryLSColour;
+            <br/> +(<span class="orange">UIColor*</span>) backgroundLSColour;
+            <br/> <span style="color:#3299BB">@end</span> </p>
+        <p>The views should be provided 'ready to use' and will have a frame that is the size of the screen, origin at <span style="font-family:'Monoid';font-size:12px;">(0,0)</span>.</p>
+        <p>Methods will return valid views/colours only if the user's CustomCover preferences are applicable, otherwise <span style="font-family:'Monoid';font-size:12px;">Nil</span> will be returned;</p>
+    </secton>
+    <section>
+        <h2>NSNotification Info</h2>
+        <p>Colour Reset</p>
+        <p class="code"> Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CustomCoverLockScreenColourResetNotification
+            <br/>UserInfo: &nbsp;&nbsp;Nil </p>
+        <p>Colour Change</p>
+        <p class="code"> Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CustomCoverLockScreenColourUpdateNotification
+            <br/>UserInfo: &nbsp; <span class="orange">NSDictionary</span> @{
+            <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="green">@"PrimaryColour"</span> &nbsp;&nbsp; : (<span class="orange">UIColor*</span>)p,
+            <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="green">@"SecondaryColour"</span> &nbsp;: (<span class="orange">UIColor*</span>)s,
+            <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="green">@"BackgroundColour"</span> : (<span class="orange">UIColor*</span>)b
+            <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }; </p>
+        <p> If you have any further questions just <a href="mailto:contact@chewitt.me">email</a> me. </p>
+    </section>
+    <p class="footer">Charlie Hewitt - 2015</p>
+</body>
+
+</html>

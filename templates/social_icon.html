@@ -1,0 +1,7 @@
+<a href="{{ link | raw }}" target="_blank">
+    <li>
+        <svg {% if padded is defined and padded %}class="padded"{% endif %} viewBox="0 0 800 800">
+            {{ path | raw}}
+        </svg>
+    </li>
+</a>

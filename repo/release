@@ -1,0 +1,8 @@
+Origin: Charlie Hewitt's Repo
+Label: Chewitt’s Repo
+Suite: stable
+Version: 1.0
+Codename: chewitt
+Architectures: iphoneos-arm
+Components: main
+Description: Personal repository of Charlie Hewitt.

@@ -1,0 +1,13 @@
+<div class="portfolio-item">
+    <img src="Folio/{% if image is defined %}{{ image }}{% else %}{{ title }}{% endif %}.jpg" />
+    <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
+        <div class="background" style="background-image:url('Folio/{% if image is defined %}{{ image }}{% else %}{{ title }}{% endif %}.jpg')"></div>
+        <div class="content">
+            <div class="title">
+                <h2>{{ title|raw }}</h2>
+                {% if button_title is defined  %}<a class="btn white" href="{{ button_link }}" target="_blank">{{ button_title }}</a>{% endif %}
+            </div>
+            {{ content|raw }}
+        </div>
+    </div>
+</div>
