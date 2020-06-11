@@ -219,7 +219,7 @@ function init() {
     setInterval(() => {
         resizeUpdate();
     }, 100);
-    document.getElementById('other').className = 'hidden';
+    document.getElementById('portfolio').className = 'hidden';
 }
 
 window.onload = init;
