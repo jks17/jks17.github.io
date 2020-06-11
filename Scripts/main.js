@@ -155,6 +155,7 @@ function goToPortfolio() {
         }
     }
     document.getElementById('other').className = 'hidden';
+    document.getElementById('publications').className = 'hidden';
     document.getElementById('portfolio').className = '';
 }
 
@@ -165,6 +166,17 @@ function goToAbout() {
     }
     document.getElementById('other').className = '';
     document.getElementById('portfolio').className = 'hidden';
+    document.getElementById('publications').className = 'hidden';
+}
+
+function goToPublications() {
+    "use strict";
+    if (isMobile && window.innerWidth <= 760) {
+        showMenu();
+    }
+    document.getElementById('other').className = 'hidden';
+    document.getElementById('portfolio').className = 'hidden';
+    document.getElementById('publications').className = '';
 }
 
 function showMenu() {
@@ -220,6 +232,7 @@ function init() {
         resizeUpdate();
     }, 100);
     document.getElementById('portfolio').className = 'hidden';
+    document.getElementById('publications').className = 'hidden';
 }
 
 window.onload = init;
