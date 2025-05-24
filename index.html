@@ -15,6 +15,130 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous">
     <script src="Scripts/main.js" type="text/javascript"></script>
+    <style>
+        /* Portfolio item styling */
+        .portfolio-item {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Overlay styling */
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay .content {
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        .portfolio-overlay .title h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        
+        .portfolio-overlay p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .btn.white {
+            display: inline-block;
+            padding: 8px 15px;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn.white:hover {
+            background: white;
+            color: black;
+        }
+        
+        /* For desktop layouts */
+        @media (min-width: 768px) {
+            .content .portfolio-item {
+                width: 48%;
+                margin-right: 2%;
+                float: left;
+            }
+            
+            .content .portfolio-item:nth-child(2n) {
+                margin-right: 0;
+            }
+            
+            /* Clear floats after every second item */
+            .content .portfolio-item:nth-child(2n+1) {
+                clear: both;
+            }
+        }
+        
+        /* For larger screens */
+        @media (min-width: 1200px) {
+            .content .portfolio-item {
+                width: 32%;
+                margin-right: 2%;
+            }
+            
+            .content .portfolio-item:nth-child(2n) {
+                margin-right: 2%;
+            }
+            
+            .content .portfolio-item:nth-child(3n) {
+                margin-right: 0;
+            }
+            
+            /* Clear floats after every third item */
+            .content .portfolio-item:nth-child(3n+1) {
+                clear: both;
+            }
+            
+            .content .portfolio-item:nth-child(2n+1) {
+                clear: none;
+            }
+        }
+    </style>
 </head>
 
 
@@ -134,7 +258,7 @@ simultaneously scaffold multiple functional sites in a single domain protein usi
     <div class="portfolio-item">
         <img src="Folio/food.jpeg"/>
         <div class="portfolio-overlay" onclick="toggleVisibilty(this)">
-            <div class="background" style="background-image:url('Folio/curvature.jpg')"></div>
+            <div class="background" style="background-image:url('Folio/food.jpeg')"></div>
             <div class="content">
                 <div class="title">
                     <h2>Genomic-driven nutritional interventions</h2>
@@ -408,35 +532,58 @@ simultaneously scaffold multiple functional sites in a single domain protein usi
 </div> 
 -->
 
-                <!--.<p>A full CV is available <a href="joshua_southern_cv.pdf" target="_blank">here</a>.</p>-->
+        <!--.<p>A full CV is available <a href="joshua_southern_cv.pdf" target="_blank">here</a>.</p>-->
         </section>
 
-        <section id="publications">
-          <h1><b>Publications</b></h1>
-          <h3><b>2023</b></h3>
-          <ul type="square">
-            <li><a href="https://arxiv.org/abs/2301.12906" target="_blank"><u>Curvature Filtrations for Graph Generative Model Evaluation</u></a>, J Southern, J Wayland, MM Bronstein, B Rieck, <b>NeurIPS 2023</b></li>
-        </ul>
-        <h3><b>2023</b></h3>
-          <ul type="square">
-            <li><a href="https://www.nature.com/articles/s41598-023-41833-8" target="_blank"><u>Genomic-driven nutritional interventions for radiotherapy-resistant rectal cancer patient</u></a>, J Southern, G Gonzalez, P Borgas, L Poynter, I Laponogov, Y Zhong, R Mirnezami, D Veselkov, MM Bronstein, K Veselkov, <b>Scientific Reports</b></li>
-        </ul>
-          <h3><b>2022</b></h3>
-          <ul type="square">
-            <li><a href="https://openreview.net/forum?id=5yn5shS6wN" target="_blank"><u>Physics-informed deep neural network for rigid-body protein docking</u></a>, F Sverrisson, J Feydy, J Southern, MM Bronstein, B Correia, <b>ICLR 2022 Machine Learning for Drug Discovery</b></li>
-        </ul>
-          <h3><b>2022</b></h3>
-          <ul type="square">
-            <li><a href="https://openreview.net/forum?id=DwN81YIXGQP" target="_blank"><u>Deep sharpening of topological features for de novo protein design</u></a>, Z Harteveld, J Southern, M Defferrard, A Loukas, P Vandergheynst, MM Bronstein, B Correia, <b>ICLR 2022 Machine Learning for Drug Discovery</b></li>
-        </ul>
-          <h3><b>2020</b></h3>
-          <ul type="square">
-            <li><a href="https://ieeexplore.ieee.org/abstract/document/9043749" target="_blank"><u>A Bayesian Deep Learning Framework For End-to-end Prediction of Emotion From Heartbeat</u></a>, R Harper, J Southern, <b>IEEE Transactions on Affective Computing</b></li>
-        </ul>
-          <h3><b>2019</b></h3>
-          <ul type="square">
-            <li><a href="https://ieeexplore.ieee.org/abstract/document/8925520" target="_blank"><u>End-To-End Prediction of Emotion From Heartbeat Data Collected by a Consumer Fitness Tracker</u></a>, R Harper, J Southern, <b>ACII 2019</b></li>
-        </ul>
+        <section id="Selected Publications">
+          <h1 id="publications-title" style="cursor: pointer;"><b>Publications &#9662;</b></h1>
+          <div id="publications-list" style="display: none; opacity: 0; transition: opacity 0.5s ease-in-out;">
+            
+            <h3><b>2025</b></h3>
+            <div class="publication-entry">
+              <h4><a href="https://arxiv.org/abs/2501.03113" target="_blank">Subgraph GNNs with Walk-Based Centrality</a></h4>
+              <p class="authors">J Southern, Y Eitan, G Bar-Shalom, M Bronstein, H Maron, F Frasca</p>
+              <p class="venue"><em>ICML 2025</em></p>
+            </div>
+            <div class="publication-entry">
+                <h4><a href="https://arxiv.org/abs/2405.13526" target="_blank">Understanding Virtual Nodes: Oversquashing and Node Heterogeneity</a></h4>
+                <p class="authors">J Southern, F Di Giovanni. M Bronstein, J Lutzeyer</p>
+                <p class="venue"><em>ICLR 2025</em></p>
+              </div>
+
+            <h3><b>2023</b></h3>
+            <div class="publication-entry">
+              <h4><a href="https://arxiv.org/abs/2301.12906" target="_blank">Curvature Filtrations for Graph Generative Model Evaluation</a></h4>
+              <p class="authors">J Southern, J Wayland, MM Bronstein, B Rieck</p>
+              <p class="venue"><em>NeurIPS 2023</em></p>
+            </div>
+
+            <h3><b>2022</b></h3>
+            <div class="publication-entry">
+              <h4><a href="https://openreview.net/forum?id=5yn5shS6wN" target="_blank">Physics-informed deep neural network for rigid-body protein docking</a></h4>
+              <p class="authors">F Sverrisson, J Feydy, J Southern, MM Bronstein, B Correia</p>
+              <p class="venue"><em>ICLR 2022 Machine Learning for Drug Discovery</em></p>
+            </div>
+            <div class="publication-entry">
+              <h4><a href="https://openreview.net/forum?id=DwN81YIXGQP" target="_blank">Deep sharpening of topological features for de novo protein design</a></h4>
+              <p class="authors">Z Harteveld, J Southern, M Defferrard, A Loukas, P Vandergheynst, MM Bronstein, B Correia</p>
+              <p class="venue"><em>ICLR 2022 Machine Learning for Drug Discovery</em></p>
+            </div>
+
+            <h3><b>2020</b></h3>
+            <div class="publication-entry">
+              <h4><a href="https://ieeexplore.ieee.org/abstract/document/9043749" target="_blank">A Bayesian Deep Learning Framework For End-to-end Prediction of Emotion From Heartbeat</a></h4>
+              <p class="authors">R Harper, J Southern</p>
+              <p class="venue"><em>IEEE Transactions on Affective Computing 2020</em></p>
+            </div>
+
+            <h3><b>2019</b></h3>
+            <div class="publication-entry">
+              <h4><a href="https://ieeexplore.ieee.org/abstract/document/8925520" target="_blank">End-To-End Prediction of Emotion From Heartbeat Data Collected by a Consumer Fitness Tracker</a></h4>
+              <p class="authors">R Harper, J Southern</p>
+              <p class="venue"><em>ACII 2019</em></p>
+            </div>
+          </div>
         </section>
         <div class="copy">&copy; 2019</div>
     </div>
