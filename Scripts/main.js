@@ -235,4 +235,33 @@ function init() {
     document.getElementById('publications').className = 'hidden';
 }
 
-window.onload = init;
+// Ensure this runs after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    init();
+
+    const publicationsTitle = document.getElementById('publications-title');
+    const publicationsList = document.getElementById('publications-list');
+
+    if (publicationsTitle && publicationsList) {
+        publicationsTitle.addEventListener('click', function() {
+            const isHidden = publicationsList.style.display === 'none' || publicationsList.style.display === '';
+            
+            if (isHidden) {
+                publicationsList.style.display = 'block';
+                // Trigger reflow to ensure transition works from display: none
+                setTimeout(() => {
+                    publicationsList.style.opacity = '1';
+                }, 10); // Small delay for the browser to register display: block
+                publicationsTitle.innerHTML = '<b>Publications &#9652;</b>'; // Change arrow to up
+            } else {
+                publicationsList.style.opacity = '0';
+                // Wait for transition to finish before setting display to none
+                // This duration should match the CSS transition duration (0.5s = 500ms)
+                setTimeout(() => {
+                    publicationsList.style.display = 'none';
+                }, 500); 
+                publicationsTitle.innerHTML = '<b>Publications &#9662;</b>'; // Change arrow to down
+            }
+        });
+    }
+});
